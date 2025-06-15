@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .gym {
+      background-color: rgba(0, 0, 0, 0.3);
+      text-align: center;
+      color: white;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    .gym p {
+      padding: 2px;
+    }
+
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar h1 {
+      color: white;
+      font-size: 24px;
+      font-family: Times New Roman;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    .shuu {
+      padding-top: 400px;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      margin-left: 10px;
+      text-align: left;
+      font-size: 2.5em;
+      padding: 0 20px;
+      font-family: Times New Roman;
+      color:white;
+    }
+
+    .scroll-up,
+    .about,
+    .photo,
+    .photo img,
+    .text-about {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.5s ease, transform 1.5s ease;
+    }
+
+    .scroll-up.show,
+    .about.show,
+    .photo.show,
+    .photo img.show,
+    .text-about.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0,0,0,0.7);
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .nav-links.open {
+        max-height: 300px;
+      }
+
+      .nav-links a {
+        padding: 15px 20px;
+        border-top: 1px solid #444;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .about {
+      width: 90%;
+      max-width: 380px;
+      margin: 0 auto;
+      border-radius: 20px;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      color: white;
+    }
+
+    .photo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .photo img {
+      width: 50%;
+      max-width: 200px;
+      border-radius: 50%;
+      border: 10px solid transparent;
+    }
+
+    .text-about {
+      font-size: 15px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop class="bg-video">
+    <source src="https://files.catbox.moe/neqe0y.mp4" type="video/mp4">
+  </video>
+
+  <div class="wrapper">
+    <div class="navbar">
+      <h1>WEBDeveloper</h1>
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="https://cinematic-industry.github.io/I-m-a-photographer/">Contact (My Manager)</a>
+      </div>
+    </div>
+
+    <main>
+      <div class="content">
+        <p class="scroll-up">Welcome to my Website</p>
+      </div>
+
+      <div class="about">
+        <div class="photo">
+          <img src="https://i.ibb.co/QvTHScng/91-98756-82631-20250523-155602.jpg" alt="Profile">
+        </div>
+        <p class="text-about">
+          <strong>About Me</strong><br><br>
+          Hi! I'm a high school student with a growing passion for web development and technology. I enjoy creating websites using HTML, CSS, and JavaScript, and I’m currently learning Python to expand my programming skills and understand backend development.<br><br>
+          I'm curious, creative, and always excited to build new things and explore how the web works. Whether it's a small personal project or part of a school assignment, I love the process of turning ideas into real, working websites.<br><br>
+          I'm looking forward to learning more and growing as a developer one project at a time.
+        </p>
+      </div>
+    </main>
+
+    <div class="shuu"></div>
+
+    <footer class="gym">
+      <p>Original website will be coming soon !<br>© 2025 Developer. All rights reserved.
+        <br><span style="font-family:Times New Roman;">Developed By Subhojit Halder</span>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Unified scroll animation script
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    ['.scroll-up', '.about', '.photo', '.photo img', '.text-about'].forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
