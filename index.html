@@ -345,9 +345,22 @@
       });
     });
 
-    ['.scroll-up', '.certificate-box', '.about', '.photo', '.photo img', '.text-about'].forEach(selector => {
+    ['.scroll-up', '.about', '.photo', '.photo img', '.text-about'].forEach(selector => {
       document.querySelectorAll(selector).forEach(el => observer.observe(el));
     });
+        // Scroll animation logic
+    const boxes = document.querySelectorAll('.certificate-box');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    boxes.forEach(box => observer.observe(box));
   </script>
 </body>
 </html>
