@@ -348,6 +348,8 @@
     ['.scroll-up', '.about', '.photo', '.photo img', '.text-about'].forEach(selector => {
       document.querySelectorAll(selector).forEach(el => observer.observe(el));
     });
+  </script>
+  <script>
         // Scroll animation logic
     const boxes = document.querySelectorAll('.certificate-box');
     const observer = new IntersectionObserver((entries) => {
