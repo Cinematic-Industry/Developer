@@ -182,6 +182,84 @@
       font-size: 15px;
       color: white;
     }
+    .certificate-box {
+      margin: 20px auto;
+      padding: 10px;
+      max-width: 90%;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    .certificate-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .certificate-box img {
+      width: 100%;
+      max-height: 500px;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+      object-fit: contain;
+    }
+    .certificate-box img:hover {
+      transform: scale(1.03);
+    }
+    .gym {
+      background-color: rgba(0, 0, 0, 0.3);
+      text-align: center;
+      color: white;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    .gym p {
+      padding: 2px;
+    }
+    .photo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .photo img {
+      width: 50%;
+      max-width: 200px;
+      border-radius: 50%;
+      border: 10px solid transparent;
+    }
+    .achievements-title {
+      font-size: 2rem;
+      text-align: center;
+      color: white;
+      margin-bottom: 20px;
+      font-family: 'Georgia', serif;
+    }
+    .certificate-title {
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 768px) {
+      .img img {
+        max-width: 90%;
+      }
+    }
+    @media (max-width: 600px) {
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0,0,0,0.7);
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
   </style>
 </head>
 <body>
